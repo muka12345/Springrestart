@@ -14,19 +14,17 @@ public class JDBCTests {
 	static {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
+
 	@Test
 	public void testConnection() {
-		try(Connection con =
-				DriverManager.getConnection(
-				"jdbc:oracle:thin:@localhost:1521:orcl",
-				"book_ex",
-				"book_ex")){
+		try (Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "book_ex",
+				"book_ex")) {
 			log.info(con);
-		}catch(Exception e) {
+		} catch (Exception e) {
 			fail(e.getMessage());
 		}
 	}
